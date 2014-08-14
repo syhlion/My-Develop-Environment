@@ -1,3 +1,3 @@
-my-sublime-setting
+My Develop Environment
 ===============
 
