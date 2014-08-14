@@ -25,19 +25,13 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 
 必裝套件
 <ul>
-<li>Sub­limeLin­ter
-
-<li>SublimeLinter-php
-
-<li>SublimeLinter-phplint
-
-<li>SublimeLinter-jshint
-
-<li>SublimeLinter-csslint
-
-<li>SideBarEnhancements
-
-<li>git
+<li>Sub­limeLin­ter</li>
+<li>SublimeLinter-php</li>
+<li>SublimeLinter-phplint</li>
+<li>SublimeLinter-jshint</li>
+<li>SublimeLinter-csslint</li>
+<li>SideBarEnhancements</li>
+<li>git</li>
 </ul>
 
 使用jsint需安裝node套件
