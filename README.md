@@ -27,17 +27,17 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 <ul>
 <li>Sub­limeLin­ter
 
-SublimeLinter-php
+<li>SublimeLinter-php
 
-SublimeLinter-phplint
+<li>SublimeLinter-phplint
 
-SublimeLinter-jshint
+<li>SublimeLinter-jshint
 
-SublimeLinter-csslint
+<li>SublimeLinter-csslint
 
-SideBarEnhancements
+<li>SideBarEnhancements
 
-git
+<li>git
 </ul>
 
 使用jsint需安裝node套件
