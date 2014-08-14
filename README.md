@@ -24,8 +24,8 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 安裝完畢
 
 必裝套件
-
-Sub­limeLin­ter
+<ul>
+<li>Sub­limeLin­ter
 
 SublimeLinter-php
 
@@ -38,7 +38,7 @@ SublimeLinter-csslint
 SideBarEnhancements
 
 git
-
+</ul>
 
 使用jsint需安裝node套件
 
