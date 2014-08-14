@@ -26,11 +26,17 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 必裝套件
 
 Sub­limeLin­ter
+
 SublimeLinter-php
+
 SublimeLinter-phplint
+
 SublimeLinter-jshint
+
 SublimeLinter-csslint
+
 SideBarEnhancements
+
 git
 
 
