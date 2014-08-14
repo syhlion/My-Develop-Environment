@@ -5,7 +5,7 @@ My Develop Environment
 
 安裝Voundle & git
 
-<code>sudo apt-get install git curl</code>
+<code>sudo apt-get install git curl</code><br/>
 <code>git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</code>
 
 最後在 Vim 中執行 :PluginInstall 安裝 .vimrc 中所設定的 plugins
