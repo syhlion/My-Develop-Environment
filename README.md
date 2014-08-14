@@ -1,3 +1,3 @@
-sublime-setting
+my-sublime-setting
 ===============
 
