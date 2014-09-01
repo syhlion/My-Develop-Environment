@@ -22,7 +22,7 @@ Bundle 'gmarik/vundle'
 " scripts on GitHub repos
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-rails.git'
+"Bundle 'tpope/vim-rails.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -32,7 +32,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'mattn/emmet-vim'
 " scripts not on GitHub
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 "Bundle 'donnut/vim-php54-syntax'
 Bundle 'jelera/vim-javascript-syntax'
 "Bundle 'pangloss/vim-javascript'
