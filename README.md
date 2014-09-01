@@ -34,13 +34,13 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 <li>git</li>
 </ul>
 
-使用jsint需安裝node套件
+使用jsint需安裝node套件!
 
 <code>
 sudo npm install -g jshint
 </code>
 
-使用csslint需安裝node套件
+使用csslint需安裝node套件!
 
 <code>
 sudo npm install -g csslint
