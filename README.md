@@ -6,8 +6,9 @@ My Develop Environment
 安裝Voundle & git
 ``` shell
 sudo apt-get install git curl
+``` 
+
 ``` shell
-```
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
 
