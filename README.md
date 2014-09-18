@@ -28,13 +28,13 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 安裝完畢
 
 必裝套件
-*. Sub­limeLin­t
-*. SublimeLinter-php
-*. SublimeLinter-phplint
-*. SublimeLinter-jshint
-*. SublimeLinter-csslint
-*. SideBarEnhancements
-*. git
+* Sub­limeLin­t
+* SublimeLinter-php
+* SublimeLinter-phplint
+* SublimeLinter-jshint
+* SublimeLinter-csslint
+* SideBarEnhancements
+* git
 
 
 使用jsint需安裝node套件!
