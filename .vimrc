@@ -1,3 +1,10 @@
+" Check Vundle is installed or not
+filetype off
+set guifont=Inconsolata_for_Powerline:h10:cANSI
+let g:airline_powerline_fonts = 1
+set encoding=utf-8
+
+
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -11,61 +18,90 @@ set nocompatible " be iMproved, required
 filetype off " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 " alternatively, pass a path where Vundle should install bundles
 "let path = '~/some/path/here'
 "call vundle#rc(path)
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-" The following are examples of different formats supported.
-" Keep bundle commands between here and filetype plugin indent on.
-" scripts on GitHub repos
+
+" Bundle list
+" To install these enter
+Bundle 'gmarik/Vundle.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-rails.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-Bundle 'L9'
-"Bundle 'taglist.vim'
-Bundle 'FuzzyFinder'
-Bundle 'mattn/emmet-vim'
-" scripts not on GitHub
-Bundle 'git://git.wincent.com/command-t.git'
-"Bundle 'donnut/vim-php54-syntax'
-Bundle 'jelera/vim-javascript-syntax'
-"Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
-"Bundle "MarcWeber/vim-addon-mw-utils"
-"Bundle "tomtom/tlib_vim"
-"Bundle "garbas/vim-snipmate"
-"Bundle "honza/vim-snippets"
-"Bundle "marijnh/tern_for_vim"
-"Bundle "kien/ctrlp.vim.git"
-" git repos on your local machine (i.e. when working on your own plugin)
-"Bundle 'file:///home/gmarik/path/to/plugin'
-" ...
-filetype plugin indent on " required
-"
-" Brief help
-" :BundleList - list configured bundles
-" :BundleInstall(!) - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!) - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
+Bundle 'scrooloose/syntastic'
+call vundle#end()
+filetype plugin indent on
+" Vundle control block ends here
+
 syntax on
-set nu "set number line
-set tabstop=4 "set tab length
-set shiftwidth=4
-set expandtab
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"map <f9> :Tlist<CR>
-map <f5> :NERDTree<CR>
-map <f6> :ProjectsTree<CR>
-map <c-p> :LocateFile<CR>
-map <f2> :tabn<CR>
-"au FileType javascript call JavaScriptFold()"
-au BufNewFile,BufRead *.ejs set filetype=html
+set nocompatible   " Disable vi-compatibility
+
+set t_Co=256
+colorscheme xoria256
+set guioptions-=T " Removes top toolbar
+set guioptions-=r " Removes right hand scroll bar
+set go-=L " Removes left hand scroll bar
+set linespace=15
+
+set showmode                    " always show what mode we're currently editing in
+set nowrap                      " don't wrap lines
+set tabstop=4                   " a tab is four spaces
+set smarttab
+set tags=tags
+set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set expandtab                   " expand tabs by default (overloadable per file type later)
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set autoindent                  " always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
+set number                      " always show line numbers
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
+set timeout timeoutlen=200 ttimeoutlen=100
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+set autowrite  "Save on buffer switch
+set mouse=a
+set laststatus=2
+filetype plugin indent on
+
+"Swap files
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+
+"Nerdtree key binding
+map <C-\> :NERDTreeToggle<CR>
+
+
+"air-line setting
+set laststatus=2
+" 使用powerline打过补丁的字体
+" let g:airline_powerline_fonts = 1
+" " 开启tabline
+let g:airline#extensions#tabline#enabled = 1
+" " tabline中当前buffer两端的分隔字符
+let g:airline#extensions#tabline#left_sep = ' '
+" " tabline中未激活buffer两端的分隔字符
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" " tabline中buffer显示编号
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" " 映射切换buffer的键位
+nnoremap [b :bp<CR>
+nnoremap ]b :bn<CR>
+
+"Syntastic setting
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_php_checkers = ['php']
+let g:EclimFileTypeValidate = 0
