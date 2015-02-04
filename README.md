@@ -1,6 +1,17 @@
 #My Develop Environment
 ===============
 
+##字型:
+* inconsolata
+
+##系統環境架設:
+必裝套件
+* nvm (Node Version Manger)
+* npm (Node Package Manger)
+* rvm (Ruby Version Manger)
+* rpm (Ruby Package Manger)
+
+
 ##Vim 環境:
 
 安裝Voundle & git
