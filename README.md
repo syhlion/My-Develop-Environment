@@ -4,8 +4,7 @@
 ##Vim 環境:
 
 安裝Voundle & git
-
-```
+``` shell
 sudo apt-get install git curl
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
@@ -26,7 +25,8 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 安裝完畢
 
 ###必裝套件
-* Sub­limeLin­ter
+必裝套件
+* SublimeLint
 * SublimeLinter-php
 * SublimeLinter-phplint
 * SublimeLinter-jshint
@@ -34,14 +34,13 @@ import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330
 * SideBarEnhancements
 * git
 
-使用jsint需安裝node套件
 
-```
+使用jsint需安裝node套件!
+``` shell
 sudo npm install -g jshint
 ```
 
-使用csslint需安裝node套件
-
-```
+使用csslint需安裝node套件!
+``` shell
 sudo npm install -g csslint
 ```
