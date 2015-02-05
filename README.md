@@ -15,6 +15,7 @@
 ##Vim 環境:
 
 安裝Voundle & git
+下載xoria256.vim 放到~/.vim/colors
 ``` shell
 sudo apt-get install git curl
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
