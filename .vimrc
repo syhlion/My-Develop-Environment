@@ -65,7 +65,6 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autowrite  "Save on buffer switch
-set mouse=a
 set laststatus=2
 filetype plugin indent on
 
@@ -105,3 +104,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_php_checkers = ['php']
 let g:EclimFileTypeValidate = 0
+let g:syntastic_error_symbol = '✗✗' 
+let g:syntastic_style_error_symbol = '✠✠' 
+let g:syntastic_warning_symbol = '∆∆' 
+let g:syntastic_style_warning_symbol = '≈≈' 
