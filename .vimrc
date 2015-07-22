@@ -1,9 +1,12 @@
+
 " Check Vundle is installed or not
 filetype off
 set guifont=Inconsolata_for_Powerline:h10:cANSI
 let g:airline_powerline_fonts = 1
 set encoding=utf-8
 
+
+let g:molokai_original = 1
 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -15,7 +18,6 @@ silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 let iCanHazVundle=0
 endif
 set nocompatible " be iMproved, required
-filetype off " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
@@ -32,15 +34,19 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'fatih/vim-go'
+Bundle 'majutsushi/tagbar'
+Bundle 'Shougo/neocomplete'
+
 call vundle#end()
-filetype plugin indent on
+filetype plugin on
 " Vundle control block ends here
 
 syntax on
 set nocompatible   " Disable vi-compatibility
 
 set t_Co=256
-colorscheme xoria256
+colorscheme molokai
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
@@ -66,7 +72,6 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autowrite  "Save on buffer switch
 set laststatus=2
-filetype plugin indent on
 
 "Swap files
 set backupdir=~/.vim/backup//
@@ -74,7 +79,11 @@ set directory=~/.vim/swap//
 
 "Nerdtree key binding
 map <C-\> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
+
+
+let g:neocomplete#enable_at_startup = 1
 
 "air-line setting
 set laststatus=2
@@ -108,3 +117,33 @@ let g:syntastic_error_symbol = '✗✗'
 let g:syntastic_style_error_symbol = '✠✠' 
 let g:syntastic_warning_symbol = '∆∆' 
 let g:syntastic_style_warning_symbol = '≈≈' 
+let g:user_emmet_leader_key='<C-Z>'
+
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+    \ 'i:imports:1',
+    \ 'c:constants',
+    \ 'v:variables',
+    \ 't:types',
+    \ 'n:interfaces',
+    \ 'w:fields',
+    \ 'e:embedded',
+    \ 'm:methods',
+    \ 'r:constructor',
+    \ 'f:functions'
+        \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+            \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+            \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+        \ }
