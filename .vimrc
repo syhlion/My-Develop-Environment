@@ -46,7 +46,7 @@ syntax on
 set nocompatible   " Disable vi-compatibility
 
 set t_Co=256
-colorscheme molokai
+colorscheme xoria256
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
