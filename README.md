@@ -14,24 +14,25 @@
 
 ##Vim 環境:
 
-1. 安裝Voundle & git & vim (7.0 up)
+``` shell
+sudo apt-get install git curl vim
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
+1. 安裝Voundle & git & vim (7.0 up)  
 2. Color Scheme: [https://github.com/fatih/molokai](https://github.com/fatih/molokai) or xoria256.vim  放到~/.vim/colors
 3. 有要用 [autocomplete](http://github.com/Shougo/neocomplete) 請確認  
 
 > Make sure you have any of these packages:
-> vim-nox
-> vim-gtk
-> vim-gnome
-> vim-athena
+> * vim-nox
+> * vim-gtk
+> * vim-gnome
+> * vim-athena
 
 4. 有要用 [tagbar](https://github.com/majutsushi/tagbar) 請確認  
 
->> ctags 5.5
+> ctags 5.5  
 
-``` shell
-sudo apt-get install git curl
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-```
+
 
 最後在 Vim 中執行 :PluginInstall 安裝 .vimrc 中所設定的 plugins
 
