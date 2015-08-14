@@ -28,15 +28,15 @@ call vundle#begin()
 
 " Bundle list
 " To install these enter
-Bundle 'gmarik/Vundle.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'fatih/vim-go'
-Bundle 'majutsushi/tagbar'
-Bundle 'Shougo/neocomplete'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/neocomplete'
 
 call vundle#end()
 filetype plugin on
