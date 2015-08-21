@@ -32,6 +32,16 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 > ctags 5.5  
 
+5. 要在自己根目錄開兩個資料夾，或是註解掉 77 & 78 行，不要設定backupdir & dircetory  
+
+> // set backdir=~/.vim/backup//  
+> // directory=~/.vim/swap//  
+
+
+``` shell
+$ mkdir ~/.vim/backup
+$ mkdir ~/.vim/swap/
+```
 
 
 最後在 Vim 中執行 :PluginInstall 安裝 .vimrc 中所設定的 plugins
