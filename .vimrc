@@ -67,10 +67,10 @@ set copyindent                  " copy the previous indentation on autoindenting
 set number                      " always show line numbers
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
-set timeout timeoutlen=200 ttimeoutlen=100
+"set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set autowrite  "Save on buffer switch
+"set autowrite  "Save on buffer switch
 set laststatus=2
 
 "Swap files
@@ -119,6 +119,22 @@ let g:syntastic_warning_symbol = '∆∆'
 let g:syntastic_style_warning_symbol = '≈≈' 
 let g:user_emmet_leader_key='<C-Z>'
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let mapleader = ","
+au FileType go map <Leader>ds <Plug>(go-def-split)
+au FileType go map <Leader>dv <Plug>(go-def-vertical)
+au FileType go map <Leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>i <Plug>(go-info)
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
