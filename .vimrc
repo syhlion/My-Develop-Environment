@@ -37,6 +37,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/neocomplete'
+Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
 filetype plugin on
