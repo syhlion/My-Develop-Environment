@@ -18,25 +18,20 @@ silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 let iCanHazVundle=0
 endif
 set nocompatible " be iMproved, required
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
-"call vundle#rc(path)
-" let Vundle manage Vundle, required
 
 " Bundle list
 " To install these enter
-Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'fatih/vim-go'
-Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/neocomplete'
+Plugin 'gmarik/Vundle.vim' "BJ4
+Plugin 'kien/ctrlp.vim' "快速搜尋檔案
+Plugin 'bling/vim-airline' "排版
+Plugin 'tpope/vim-fugitive' "git 相關
+Plugin 'scrooloose/nerdtree' "檔案列表
+Plugin 'scrooloose/syntastic' "語法檢查器
+Plugin 'fatih/vim-go' " go 專用
+Plugin 'majutsushi/tagbar' "搭配ctag 可以作到變數定位
+Plugin 'Shougo/neocomplete' "自動完成
 Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
@@ -64,15 +59,16 @@ set shiftwidth=4                " number of spaces to use for autoindenting
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set autoindent                  " always set autoindenting on
+" 自動縮排：啟用自動縮排以後，在貼上剪貼簿的資料時排版可能會亂掉，這時可以手動切換至貼上模式
+" :set paste 再進行貼上。
 set copyindent                  " copy the previous indentation on autoindenting
 set number                      " always show line numbers
 set ignorecase                  " ignore case when searching
 set smartcase                   " ignore case if search pattern is all lowercase,
-"set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-"set autowrite  "Save on buffer switch
 set laststatus=2
+set cursorline
 
 "Swap files
 set backupdir=~/.vim/backup//
@@ -88,8 +84,6 @@ let g:neocomplete#enable_at_startup = 1
 
 "air-line setting
 set laststatus=2
-" 使用powerline打过补丁的字体
-" let g:airline_powerline_fonts = 1
 " " 开启tabline
 let g:airline#extensions#tabline#enabled = 1
 " " tabline中当前buffer两端的分隔字符
@@ -125,6 +119,8 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+
 
 let mapleader = ","
 au FileType go map <Leader>ds <Plug>(go-def-split)
