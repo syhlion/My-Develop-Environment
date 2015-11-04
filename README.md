@@ -44,11 +44,17 @@ $ mkdir ~/.vim/swap/
 ```
 
 
-最後在 Vim 中執行 :PluginInstall 安裝 .vimrc 中所設定的 plugins
+最後在 Vim 中執行 :VundleInstall 安裝 .vimrc 中所設定的 plugins
+要更新的時侯就下 :VundleUpdate
+
+## Go 開發環境
+
+```
+// 搭配 tagbar 使用
+go get -u github.com/jstemmer/gotags
+```
 
 ##Sublime Text3 環境:
-
-
 Package Control 安裝
 開啟console (Ctrl + `)
 
