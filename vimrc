@@ -25,18 +25,26 @@ call vundle#begin()
 " To install these enter
 Plugin 'gmarik/Vundle.vim' "BJ4
 Plugin 'kien/ctrlp.vim' "快速搜尋檔案
-Plugin 'bling/vim-airline' "排版
+Plugin 'vim-airline/vim-airline' "排版
+Plugin 'vim-airline/vim-airline-themes' "排版
 Plugin 'tpope/vim-fugitive' "git 相關
 Plugin 'scrooloose/nerdtree' "檔案列表
 Plugin 'scrooloose/syntastic' "語法檢查器
 Plugin 'fatih/vim-go' " go 專用
-Plugin 'majutsushi/tagbar' "搭配ctag 可以作到變數定位
+"Plugin 'majutsushi/tagbar' "搭配ctag 可以作到變數定位
 Plugin 'Shougo/neocomplete' "自動完成
-Plugin 'Townk/vim-autoclose'
+"Plugin 'Townk/vim-autoclose'
 
 call vundle#end()
 filetype plugin on
 " Vundle control block ends here
+
+
+
+"airline set
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 syntax on
 set nocompatible   " Disable vi-compatibility
@@ -82,17 +90,6 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:neocomplete#enable_at_startup = 1
 
-"air-line setting
-set laststatus=2
-" " 开启tabline
-let g:airline#extensions#tabline#enabled = 1
-" " tabline中当前buffer两端的分隔字符
-let g:airline#extensions#tabline#left_sep = ' '
-" " tabline中未激活buffer两端的分隔字符
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" " tabline中buffer显示编号
-let g:airline#extensions#tabline#buffer_nr_show = 1
-" " 映射切换buffer的键位
 nnoremap [b :bp<CR>
 nnoremap ]b :bn<CR>
 
@@ -101,6 +98,19 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_term_enabled = 1
+let g:go_list_type = "quickfix"
+let g:syntastic_go_checkers = ['go','golint', 'govet', 'errcheck']
+"let g:go_fmt_autosave = 1
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -113,13 +123,6 @@ let g:syntastic_style_error_symbol = '✠✠'
 let g:syntastic_warning_symbol = '∆∆' 
 let g:syntastic_style_warning_symbol = '≈≈' 
 let g:user_emmet_leader_key='<C-Z>'
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
 
 
 let mapleader = ","
@@ -137,26 +140,26 @@ let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
         \ 'p:package',
-    \ 'i:imports:1',
-    \ 'c:constants',
-    \ 'v:variables',
-    \ 't:types',
-    \ 'n:interfaces',
-    \ 'w:fields',
-    \ 'e:embedded',
-    \ 'm:methods',
-    \ 'r:constructor',
-    \ 'f:functions'
-        \ ],
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
     \ 'sro' : '.',
     \ 'kind2scope' : {
         \ 't' : 'ctype',
         \ 'n' : 'ntype'
-            \ },
+    \ },
     \ 'scope2kind' : {
         \ 'ctype' : 't',
         \ 'ntype' : 'n'
-            \ },
+    \ },
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
-        \ }
+\ }
