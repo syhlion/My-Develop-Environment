@@ -1,13 +1,15 @@
 
 " Check Vundle is installed or not
 filetype off
-set guifont=Inconsolata_for_Powerline:h10:cANSI
+set guifont=Inconsolata_for_Powerline:h20
 let g:airline_powerline_fonts = 1
 set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 
 let g:molokai_original = 1
 
+let g:airline_theme='wombat'
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -54,10 +56,10 @@ colorscheme xoria256
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
-set linespace=15
+set linespace=1
 
 set showmode                    " always show what mode we're currently editing in
-set nowrap                      " don't wrap lines
+set wrap                      " don't wrap lines
 set tabstop=4                   " a tab is four spaces
 set smarttab
 set tags=tags
