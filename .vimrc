@@ -1,63 +1,60 @@
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-" Check Vundle is installed or not
-filetype off
-set guifont=Inconsolata_for_Powerline:h20
-let g:airline_powerline_fonts = 1
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+" Make sure you use single quotes
 
-
-let g:molokai_original = 1
-
-let g:airline_theme='wombat'
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-echo "Installing Vundle.."
-echo ""
-silent !mkdir -p ~/.vim/bundle
-silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-let iCanHazVundle=0
-endif
-set nocompatible " be iMproved, required
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-" Bundle list
-" To install these enter
-Plugin 'gmarik/Vundle.vim' "BJ4
-Plugin 'kien/ctrlp.vim' "快速搜尋檔案
-Plugin 'vim-airline/vim-airline' "排版
-Plugin 'vim-airline/vim-airline-themes' "排版
-Plugin 'tpope/vim-fugitive' "git 相關
-Plugin 'scrooloose/nerdtree' "檔案列表
-Plugin 'scrooloose/syntastic' "語法檢查器
-Plugin 'fatih/vim-go' " go 專用
-Plugin 'matze/vim-move'
-"Plugin 'majutsushi/tagbar' "搭配ctag 可以作到變數定位
-Plugin 'Shougo/neocomplete' "自動完成
-"Plugin 'Townk/vim-autoclose'
-
-call vundle#end()
-filetype plugin on
-" Vundle control block ends here
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
 
+Plug 'junegunn/vim-github-dashboard'
 
-"airline set
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-syntax on
-set nocompatible   " Disable vi-compatibility
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-set t_Co=256
-colorscheme xoria256
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
-set go-=L " Removes left hand scroll bar
-set linespace=1
+
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'kien/ctrlp.vim'
+
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" color scheme
+Plug 'fatih/molokai'
+
+" tag bar
+Plug 'majutsushi/tagbar'
+
+Plug 'AndrewRadev/splitjoin.vim'
+
+Plug 'matze/vim-move'
+Plug 'wakatime/vim-wakatime'
+
+"git"
+Plug 'tpope/vim-fugitive'
+
+Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+
+
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
+
+" find and replace vim plugin
+Plug 'brooth/far.vim'
+
+
+
+" Initialize plugin system
+call plug#end()
+
 
 set showmode                    " always show what mode we're currently editing in
 set wrap                      " don't wrap lines
@@ -79,8 +76,12 @@ set smartcase                   " ignore case if search pattern is all lowercase
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set laststatus=2
-set cursorline
+"set cursorline
+"
+"
+"
 
+let mapleader = ","
 "Swap files
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
@@ -91,79 +92,51 @@ nmap <F8> :TagbarToggle<CR>
 
 
 
-let g:neocomplete#enable_at_startup = 1
+"" vim-go setting
 
-nnoremap [b :bp<CR>
-nnoremap ]b :bn<CR>
-
-"Syntastic setting
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 let g:go_fmt_command = "goimports"
-let g:go_fmt_fail_silently = 1
-let g:go_term_enabled = 1
-let g:go_list_type = "quickfix"
-let g:syntastic_go_checkers = ['go','golint', 'govet', 'errcheck']
-"let g:go_fmt_autosave = 1
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_php_checkers = ['php']
-let g:EclimFileTypeValidate = 0
-let g:syntastic_error_symbol = '✗✗' 
-let g:syntastic_style_error_symbol = '✠✠' 
-let g:syntastic_warning_symbol = '∆∆' 
-let g:syntastic_style_warning_symbol = '≈≈' 
-let g:user_emmet_leader_key='<C-Z>'
 
-let g:move_key_modifier = 'C'
+"" YouCompleteMe
+let g:ycm_key_list_previous_completion=['<Up>']
 
-let mapleader = ","
-au FileType go map <Leader>ds <Plug>(go-def-split)
-au FileType go map <Leader>dv <Plug>(go-def-vertical)
-au FileType go map <Leader>dt <Plug>(go-def-tab)
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsListSnippets="<c-s-j>"
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>i <Plug>(go-info)
+
+let g:move_key_modifier = 'S'
+
+let vim_markdown_preview_github=1
 
 let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+let g:tagbar_autoclose = 1
+set guifont=Menlo\ Regular:h15
