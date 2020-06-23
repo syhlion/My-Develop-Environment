@@ -20,7 +20,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -35,7 +35,7 @@ Plug 'majutsushi/tagbar'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'matze/vim-move'
-Plug 'mkitt/tabline.vim'
+Plug 'wakatime/vim-wakatime'
 
 "git"
 Plug 'tpope/vim-fugitive'
@@ -91,17 +91,11 @@ map <C-\> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 
-"vim tabline
-let g:tablineclosebutton=1
 
 "" vim-go setting
 
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
-<<<<<<< HEAD
-autocmd FileType go nmap <leader>i  <Plug>(go-info)
-=======
->>>>>>> 3302e407d2b5cd5f97ca9b3fbffacb43a8479b22
 let g:go_fmt_command = "goimports"
 
 "" YouCompleteMe
@@ -115,8 +109,6 @@ let g:UltiSnipsListSnippets="<c-s-j>"
 let g:move_key_modifier = 'S'
 
 let vim_markdown_preview_github=1
-let g:go_auto_type_info = 1
-set updatetime=100
 
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',
