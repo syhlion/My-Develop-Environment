@@ -98,10 +98,7 @@ let g:tablineclosebutton=1
 
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
-<<<<<<< HEAD
 autocmd FileType go nmap <leader>i  <Plug>(go-info)
-=======
->>>>>>> 3302e407d2b5cd5f97ca9b3fbffacb43a8479b22
 let g:go_fmt_command = "goimports"
 
 "" YouCompleteMe
